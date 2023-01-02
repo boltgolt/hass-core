@@ -46,7 +46,7 @@ async def async_setup_platform(
     """Set up the file sensor."""
     file_path: str = config[CONF_FILE_PATH]
     name: str = config[CONF_NAME]
-    icon: str | None = config.get(CONF_ICON)
+    icon: str = config[CONF_ICON]
     unit: str | None = config.get(CONF_UNIT_OF_MEASUREMENT)
     value_template: Template | None = config.get(CONF_VALUE_TEMPLATE)
 
@@ -65,7 +65,7 @@ class FileSensor(SensorEntity):
     def __init__(
         self,
         name: str,
-        icon: str | None,
+        icon: str,
         file_path: str,
         unit_of_measurement: str | None,
         value_template: Template | None,
